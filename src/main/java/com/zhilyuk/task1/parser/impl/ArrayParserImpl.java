@@ -15,8 +15,8 @@ public class ArrayParserImpl implements ArrayParser {
     private static final String DELIMITERS_REGEX = "[,;\\-\\s]";
 
     @Override
-    public List<CustomArray> arrayParse(List<String> arraysString) throws ArrayException {
-        List<CustomArray> arrays = new ArrayList<>();
+    public List<int[]> arrayParse(List<String> arraysString) throws ArrayException {
+        List<int[]> arrays = new ArrayList<>();
         ArrayValidatorImpl validator = new ArrayValidatorImpl();
         for (String line : arraysString) {
             if (validator.arrayValidateString(line)) {
@@ -26,12 +26,8 @@ public class ArrayParserImpl implements ArrayParser {
                 for (int i = 0; i < arrayString.length; i++) {
                     intArray[i] = Integer.parseInt(arrayString[i]);
                 }
-
-                ArrayFactoryImpl factory = new ArrayFactoryImpl();
-                CustomArray array = factory.createArray(intArray);
-                arrays.add(array);
-            }
-            else {
+                arrays.add(intArray);
+            } else {
                 logger.error("String is invalid for parsing: {}", line);
                 throw new ArrayException("String is invalid for parsing!");
             }

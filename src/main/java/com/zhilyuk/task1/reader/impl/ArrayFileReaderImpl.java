@@ -14,8 +14,8 @@ public class ArrayFileReaderImpl implements ArrayFileReader {
     private static final Logger logger = LogManager.getLogger();
 
     @Override
-    public List<String> arrayReadFromFile(String path) throws IOException, ArrayException {
-        if (path.isBlank()) {
+    public List<String> arrayReadFromFile(String path) throws ArrayException {
+        if (path == null || path.isBlank()) {
             logger.error("File path is empty");
             throw new ArrayException("File path is empty!");
         }
@@ -25,7 +25,7 @@ public class ArrayFileReaderImpl implements ArrayFileReader {
             return arrays;
         } catch (IOException e) {
             logger.error("Read from file error: {}", path, e);
-            throw e;
+            throw new ArrayException("Read from file error: {}" + path, e);
         }
     }
 }

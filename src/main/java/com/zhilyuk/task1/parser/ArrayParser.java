@@ -5,5 +5,5 @@ import com.zhilyuk.task1.exception.ArrayException;
 import java.util.List;
 
 public interface ArrayParser {
-    List<CustomArray> arrayParse(List<String> arraysString) throws ArrayException;
+    List<int[]> arrayParse(List<String> arraysString) throws ArrayException;
 }

@@ -54,4 +54,16 @@ public class ArrayCalculationImpl implements ArrayCalculation {
         logger.info("Found sum of array: {}", sum);
         return OptionalInt.of(sum);
     }
+
+    @Override
+    public OptionalInt avgArray(CustomArray array) {
+        if (array.getSize() == 0) {
+            logger.warn("Array is empty, avg not found");
+            return OptionalInt.empty();
+        }
+        int sum = findSumArray(array).orElse(0);
+        int avg = sum / array.getSize();
+        logger.info("Found avg of array: {}", avg);
+        return OptionalInt.of(avg);
+    }
 }

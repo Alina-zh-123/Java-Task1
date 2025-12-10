@@ -1,1 +1,8 @@
 13:21:39.268 [main] INFO  zhilyuk.task1.service.impl.ArraySortImpl - Array sorted by selection sort: com.zhilyuk.task1.entity.CustomArray@c4648
+16:43:25.778 [main] INFO  zhilyuk.task1.service.impl.ArrayCalculationImpl - Found max in array: 5
+16:43:25.791 [main] INFO  zhilyuk.task1.service.impl.ArrayCalculationImpl - Found sum of array: -8
+16:43:25.792 [main] INFO  zhilyuk.task1.service.impl.ArrayCalculationImpl - Found min in array: 1
+16:43:25.812 [main] INFO  zhilyuk.task1.reader.impl.ArrayFileReaderImpl - File is read, created 6 arrays
+16:43:25.815 [main] DEBUG zhilyuk.task1.validator.impl.ArrayValidatorImpl - Validating string: '1; 2; 3;'
+16:43:25.816 [main] INFO  zhilyuk.task1.validator.impl.ArrayValidatorImpl - Validity of string: false
+16:43:25.816 [main] ERROR zhilyuk.task1.parser.impl.ArrayParserImpl - String is invalid for parsing: 1; 2; 3;

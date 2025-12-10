@@ -1,25 +1,29 @@
 package com.zhilyuk.task1.entity;
 
-import com.zhilyuk.task1.service.impl.ArrayCalculationImpl;
 import com.zhilyuk.task1.service.impl.ArrayCalculationImpl.*;
+import java.util.Objects;
 
 public class CustomArrayData {
     private int max;
     private int min;
     private int sum;
 
-    public CustomArrayData(CustomArray array) {
-        ArrayCalculationImpl calculation = new ArrayCalculationImpl();
+    public CustomArrayData(int max, int min, int sum) {
+        this.max = max;
+        this.min = min;
+        this.sum = sum;
+    }
 
-        if (calculation.findMaxInArray(array).isPresent()) {
-            this.max = calculation.findMaxInArray(array).getAsInt();
-        }
-        if (calculation.findMinInArray(array).isPresent()) {
-            this.min = calculation.findMinInArray(array).getAsInt();
-        }
-        if (calculation.findSumArray(array).isPresent()) {
-            this.sum = calculation.findSumArray(array).getAsInt();
-        }
+    public int getMax() {
+        return max;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getSum() {
+        return sum;
     }
 
     @Override
@@ -29,5 +33,17 @@ public class CustomArrayData {
                 .append(", min=").append(min)
                 .append(", sum=").append(sum);
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomArrayData arrayData = (CustomArrayData) o;
+        return max == arrayData.max && min == arrayData.min && sum == arrayData.sum;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(max, min, sum);
     }
 }

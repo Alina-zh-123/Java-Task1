@@ -22,13 +22,13 @@ public class ArrayServiceImplTest {
             List<String> arraysRead = reader.arrayReadFromFile("data/input.txt");
             try {
                 ArrayParserImpl parser = new ArrayParserImpl();
-                List<CustomArray> arrays = parser.arrayParse(arraysRead);
+                List<int[]> arrays = parser.arrayParse(arraysRead);
 
                 assertFalse(arrays.isEmpty());
             } catch (ArrayException e) {
                 fail("File parse error: " + e.getMessage());
             }
-        } catch (IOException | ArrayException e) {
+        } catch (ArrayException e) {
             fail("File read error: " + e.getMessage());
         }
     }
